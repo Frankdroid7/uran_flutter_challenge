@@ -18,6 +18,7 @@ class _ExhibitsScreenState extends State<ExhibitsScreen> {
   final RefreshController _refreshController =
       RefreshController(initialRefresh: false);
   RestExhibitsLoader restExhibitsLoader = RestExhibitsLoader();
+
   @override
   void initState() {
     super.initState();

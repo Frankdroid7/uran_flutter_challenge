@@ -18,7 +18,14 @@ class ExhibitWidget extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
-            Text(title),
+            Padding(
+              padding: const EdgeInsets.only(left: 8.0),
+              child: Text(
+                title,
+                style:
+                    const TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+              ),
+            ),
             SizedBox(
               height: 100,
               child: ListView.builder(
@@ -28,20 +35,16 @@ class ExhibitWidget extends StatelessWidget {
                 itemBuilder: (context, index) {
                   return Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Container(
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(20)),
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(12),
-                        child: CachedNetworkImage(
-                          imageUrl: images[index],
-                          width: 100,
-                          height: 100,
-                          fit: BoxFit.fitHeight,
-                          errorWidget: (context, str, _) {
-                            return Image.asset('assets/images/no_phone.png');
-                          },
-                        ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(12),
+                      child: CachedNetworkImage(
+                        width: 100,
+                        height: 100,
+                        fit: BoxFit.fitHeight,
+                        imageUrl: images[index],
+                        errorWidget: (context, str, _) {
+                          return Image.asset('assets/images/no_phone.png');
+                        },
                       ),
                     ),
                   );
